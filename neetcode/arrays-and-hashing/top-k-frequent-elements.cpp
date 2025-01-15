@@ -20,8 +20,9 @@ vector<int> topKFrequent(vector<int>& nums, int k) { // O(N)
     for(int i=nums.size()-1; i>=0; i--){ // O (n)
         if(valuesByQuant[i].size() > 0 and result.size() < k){
             for(const int& value : valuesByQuant[i]){
-                if(result.size() < k){
-                    result.push_back(value);
+                result.push_back(value);
+                if(result.size() == k){
+                    return result;
                 }
             }
         }
